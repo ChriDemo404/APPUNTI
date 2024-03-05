@@ -1,0 +1,625 @@
+<html lang="IT">
+	<head>
+		<link rel="shortcut icon" href="https://cdn3.iconfinder.com/data/icons/education-and-knowledge-7/155/vector_338_11-512.png" />
+		<title>SCHOLA CLASSICA</title>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab:wght@100..900&family=Rock+3D&family=Rubik+Glitch+Pop&display=swap" rel="stylesheet">
+		<style>
+			body {
+				background-color: #333;
+			}
+			
+			#container {
+				display: inline;
+				height: auto;
+			}
+
+			#navbar {
+				width: 100%;
+				height: 50px;
+				background-color: #f6f6f6;
+				display: flex;
+				align-items: center;
+			}
+
+			#non-icone {
+				width: 96%;
+				height: 50px;
+				display: inline-flex;
+				align-items: center;
+			}
+
+			.titolo_1 {
+				margin-left: 15px;
+				font-size: 30px;
+				font-family: "Merriweather", serif;
+				font-weight: 500;
+			}
+
+			#titolo_2 {
+				margin-left: 30px;
+			}
+
+			#titolo_4 {
+				font-size: 30px;
+			}
+
+			#titolo_5 {
+				margin-right: 10px;
+				font-size: 20px;
+			}
+
+			#testo_6 {
+				height: 50px;
+				width: 33%;
+				font-family: "Kalam", cursive;
+				font-weight: 700;
+				font-style: italic;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			#menu {
+				width: 75px;
+				height: 50px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background-color: #f6f6f6;
+				transition: width 0.3s ease-out;
+				border: 0px;
+			}
+
+			#menu:hover {
+				background-color: #ececec;
+			}
+
+			#menu.open {
+				width: 150px;
+			}
+
+			#menu_open {
+				display: none;
+				transition: 3s ease-out;
+				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+			}
+
+			#menu.open+#menu_open {
+				display: flex;
+				justify-content: space-evenly;
+				align-items: center;
+			}
+
+			#menu_open {
+				position: absolute;
+				top: 50px;
+				width: 100%;
+				height: 50px;
+				background-color: #ececec;
+				transition: 3s ease-out;
+			}
+			
+			#sottomenu_1,
+			#sottomenu_2,
+			#sottomenu_3 {
+				width: 33.3%;
+				height: 50px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background-color: #ececec;
+				border: 0px; 
+			}
+			
+			#sottomenu_1:hover,
+			#sottomenu_2:hover,
+			#sottomenu_3:hover {
+				background-color: #dedada;
+			}
+			
+			#sottomenu_1_open,
+			#sottomenu_2_open,
+			#sottomenu_3_open {
+				display: none;
+				box-shadow: var(--shadow);
+				transition: box-shadow 0.3s ease;
+			}
+
+			#sottomenu_1_open,
+			#sottomenu_2_open,
+			#sottomenu_3_open {
+				position: absolute;
+				top: 100px; 
+				width: 100%;
+				height: 75px;
+				background-color: #e2e2e2;
+				transition: 3s ease-out;
+			}
+			
+			#sottomenu_1_open.open,
+			#sottomenu_2_open.open,
+			#sottomenu_3_open.open {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			
+			#sottomenu_1:hover,
+			#sottomenu_2:hover,
+			#sottomenu_3:hover {
+				background-color: #dedada;
+			}
+			
+			#hover {
+				width: 100px;
+				height: 50px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background-color: #f6f6f6;
+				transition: width 0.3s ease-out;
+				border: 0px; 
+			}
+		
+			#hover:hover {
+				background-color: #ececec;
+			}
+			
+			/*BARRA RICERCA*/
+			
+			#search {
+				text-indent: 10px; /* Regola che sposta il cursore di 10px a destra */
+			}
+			
+			.modulo-ricerca {
+				background-color: #f6f6f6;
+				border: 0.5px solid #999999;
+				border-radius: 10px;
+				overflow: hidden;
+				padding: 5px;
+				width: 98%;
+				height: 50px;
+			}
+
+			.modulo-ricerca #search {
+				border: 1px solid #999999;
+				box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #FFF;
+				border-radius: 10px;
+				color: #666666;
+				font: 20px Lucida Sans, Trebuchet MS, Tahoma, sans-serif;
+				box-sizing: border-box;
+				height: 50px;
+				width: 89%;
+			}
+
+			.modulo-ricerca #search::-webkit-input-placeholder {
+				color: #999;
+				font-weight: normal;
+			}
+
+			.modulo-ricerca #submit {
+				background-color: #333333;
+				border: 1px solid #333333;
+				border-radius: 10px;
+				color: #FFF;
+				cursor: pointer;
+				height: 50px;
+				float: right;
+				font: 15px Arial, Helvetica;
+				padding: 0;
+				text-shadow: 0 1px 0 rgba(0, 0 ,0, .3);
+				width: 10%;
+			}
+			
+			.modulo-ricerca #submit:hover {	
+				opacity: 0.9;
+			}
+			
+			.file {
+				display: none;
+				padding: 15px;
+				border: 1px solid #fdc424;
+				background-color: #ffcb39;
+				border-radius: 10px;
+				margin-bottom: 5px;
+				width: 700px;
+				font-size: 25px;
+				font-family: "Rock 3D", system-ui;
+				font-weight: 600;
+				color: white;
+				transition: width 1s ease, height 1s ease;
+				text-align: center;
+				margin-bottom: 25px;
+				position: relative;
+			}
+			
+			.file.expanded {
+				height: 200px;
+			}
+
+			.file.expanded p {
+				display: block;
+			}
+
+			.file p {
+				display: none;
+				text-align: left;
+			}
+			
+			.file a {
+				text-decoration: none;
+			}
+			
+			.file:hover {
+				background-color: #ffcb38;
+				font-size: 30px;
+			}
+			
+			#container-container-container {
+				position: unset;
+				display: flex;
+				background-color: #333333;
+				width: 100%;
+				height: 100%;
+				justify-content: center;
+				align-items: flex-start;
+			}
+			
+			#container-container {
+				display: flex;
+				justify-content: center;
+				border-radius: 10px;
+				background-color: #ececec;
+				width: 60%;
+				height: auto;
+				margin-top: 5%;
+				top: 15%;
+				position: relative;
+			}
+			
+			#container-file {
+				margin-top: 8%;
+				margin-bottom: 3%;
+				display: none;
+			}
+			
+			#contenitore-navbar {
+				position: sticky;
+				top: 0;
+				z-index: 1000; 
+				width: 100%;
+				background-color: #333333;
+				box-shadow: var(--shadow);
+				transition: box-shadow 0.3s ease;
+			}
+			
+			:root {
+				--shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
+			}
+			
+			.subfile {
+				margin-top: 10px;
+				border-radius: 10px;
+				color: #ffffff;
+				height: 30px;
+				font-size: 20px;
+				font-family: "Rock 3D", system-ui;
+				font-weight: 600;
+				margin-bottom: 10px;
+			}
+			
+			.file:hover .subfile:hover {
+				height: 35px;
+				font-size: 25px;
+			}
+			
+			.folder-icon {
+				font-size: 20px;
+				margin-right: 10px; 
+				margin-bottom: 5px;
+			}
+			
+			.folder-rectangle {
+				position: relative;
+				top: -46px;
+				left: -15.4px;
+				width: 731.5px;
+				height: 20px;
+				background-color: #ffce44;
+				border-radius: 9px;
+			}
+			
+			.rectangle {
+				position: relative;
+				top: -30px;
+				left: -15.4px;
+				width: 100px;
+				height: 25px;
+				background-color: #ffce44;
+				border-radius: 9px;
+			}
+			
+			.file:hover .rectangle {
+				background-color: #ffc216;
+			}
+			
+			.file:hover	.folder-rectangle {
+				background-color: #ffc216;
+			}
+			
+			* {
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div id = "contenitore-navbar">
+				<div id="navbar">
+					<div id="non-icone">
+						<img id = "titolo_2" src = "https://toppng.com/uploads/preview/open-book-icon-png-download-book-black-and-white-11563256975aruucvosij.png" height = "40px"/>
+						<div class="titolo_1">SCHOLA CLASSICA</div>
+					</div>
+					<div id="hover">
+						<span class="material-symbols-outlined" style="font-weight: 320; margin-right: 5px; font-size: 30px">brightness_5</span>
+						<span class="material-symbols-outlined" style="font-weight: 320; font-size: 40px">toggle_off</span>
+					</div>
+					<button id="menu" onclick="toggleMenu()">
+						<span class="material-symbols-outlined" id="titolo_4">menu</span>
+					</button>
+					<div id="menu_open">
+						<button id="sottomenu_1" onclick="toggleSottomenu1()">
+							<div id="testo_6"><div class="folder-icon">&#128193; </div> 3° SUPERIORE</div>
+						</button>
+						<button id="sottomenu_2" onclick="toggleSottomenu2()">
+							<div id="testo_6"><div class="folder-icon">&#128193; </div> 4° SUPERIORE</div>
+						</button>
+						<button id="sottomenu_3" onclick="toggleSottomenu3()">
+							<div id="testo_6"><div class="folder-icon">&#128193; </div> 5° SUPERIORE</div>
+						</button>
+					</div>
+					<div id="sottomenu_1_open"  onclick="toggleSottomenu1()">
+						<div class="modulo-ricerca">
+							<input type="text" id="search" placeholder="File da cercare..." onclick="keepFocus(event)">
+							<button id="submit">cerca</button>
+						</div>
+					</div>
+					<div id="sottomenu_2_open"  onclick="toggleSottomenu2()">
+						<div id="testo_6"></div>
+					</div>
+					<div id="sottomenu_3_open"  onclick="toggleSottomenu3()">
+						<div id="testo_6"></div>
+					</div>
+				</div>
+			</div>
+			<div id = "container-container-container">
+				<div id = "container-container">
+					<div id = "container-file">
+						<div class="file" onclick="showParagraph(this)">
+							<div class="rectangle"></div>
+							<div class="folder-rectangle"></div>
+							<div style = "bottom: 25px; position: relative;">INFORMATICA</div>
+							<a href = "" class="subfile" style="margin-top: 20px">SOTTOFILE 1</a>
+							<a href = "" class="subfile">SOTTOFILE 1</a>
+						</div>
+						<div class="file" onclick="showParagraph(this)">
+							<div class="rectangle"></div>
+							<div class="folder-rectangle"></div>
+							<div style = "bottom: 25px; position: relative;">TELECOMUNICAZIONI</div>
+							<a href = "" class="subfile" style="margin-top: 20px">SOTTOFILE 1</a>
+							<a href = "" class="subfile">SOTTOFILE 1</a>
+						</div>
+						<div class="file" onclick="showParagraph(this)">
+							<div class="rectangle"></div>
+							<div class="folder-rectangle"></div>
+							<div style = "bottom: 25px; position: relative;">ITALIANO</div>
+							<a href = "https://drive.google.com/file/d/1sUXAzsZjBnTOwIpJzRwLpsATKlzBtXgl/view?usp=drive_link" class="subfile" style="margin-top: 20px">VOLGARE</a>
+							<a href = "https://drive.google.com/file/d/1f-haDeP6NRQw5OuAOMkJwMeT7TWDyFpJ/view?usp=drive_link" class="subfile">DANTE ALIGHIERI</a>
+							<a href = "https://drive.google.com/file/d/1NcMiD7F14qMqQu_b3Z0bXT0mCt8IJup-/view?usp=drive_link" class="subfile">STIL NOVO</a>
+						</div>
+						<div class="file" onclick="showParagraph(this)">
+							<div class="rectangle"></div>
+							<div class="folder-rectangle"></div>
+							<div style = "bottom: 25px; position: relative;">INGLESE</div>
+							<a href = "" class="subfile" style="margin-top: 20px">SOTTOFILE 1</a>
+							<a href = "" class="subfile">SOTTOFILE 1</a>
+						</div>
+						<div class="file" onclick="showParagraph(this)">
+							<div class="rectangle"></div>
+							<div class="folder-rectangle"></div>
+							<div style = "bottom: 25px; position: relative;">STORIA</div>
+							<a href = "https://drive.google.com/file/d/1M56pfaujBB2CVDHtx-ghu5twY27zjYCI/view?usp=sharing" class="subfile" style="margin-top: 20px">MEDIOEVO - CROCIATE</a>
+							<a href = "https://drive.google.com/file/d/1HNkVuQfDHZ87EWjBZH6rQndTiVPtxcQ1/view?usp=sharing" class="subfile">FRANCIA & INGHILTERRA</a>
+							<a href = "https://drive.google.com/file/d/11lM2OvJsU4JHtKy3P67jbfm1e166WfJu/view?usp=sharing" class="subfile">REGNI CRISTIANI - PESTE</a>
+							<a href = "https://drive.google.com/file/d/1_wzlwI0UazGoaX5dYwizP7QrIl2Jw63M/view?usp=sharing" class="subfile">RIVOLTE - SIGNORIE</a>
+						</div>
+						<div class="file" onclick="showParagraph(this)">
+							<div class="rectangle"></div>
+							<div class="folder-rectangle"></div>
+							<div style = "bottom: 25px; position: relative;">S.E.R.</div>
+							<a href = "" class="subfile" style="margin-top: 20px">SOTTOFILE 1</a>
+							<a href = "" class="subfile">SOTTOFILE 1</a>
+						</div>
+						<div class="file" onclick="showParagraph(this)">
+							<div class="rectangle"></div>
+							<div class="folder-rectangle"></div>
+							<div style = "bottom: 25px; position: relative;">T.E.P.I.</div>
+							<a href = "" class="subfile" style="margin-top: 20px">SOTTOFILE 1</a>
+							<a href = "" class="subfile">SOTTOFILE 1</a>
+						</div>
+						<div class="file" onclick="showParagraph(this)">
+							<div class="rectangle"></div>
+							<div class="folder-rectangle"></div>
+							<div style = "bottom: 25px; position: relative;">file8.doc</div>
+							<a href = "" class="subfile" style="margin-top: 20px">SOTTOFILE 1</a>
+							<a href = "" class="subfile">SOTTOFILE 1</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			function expandFile(file) {
+				var subfiles = file.querySelectorAll('.subfile');
+				var isOpened = subfiles[0].style.display === 'block';
+
+				if (!isOpened) {
+					subfiles.forEach(function(subfile) {
+						subfile.style.display = 'block';
+					});
+				} else {
+					subfiles.forEach(function(subfile) {
+						subfile.style.display = 'none';
+					});
+				}
+			}
+
+			var files = document.querySelectorAll('.file');
+			files.forEach(function(file) {
+				file.addEventListener('click', function() {
+					expandFile(file);
+				});
+			});
+		
+			function toggleMenu() {
+				var menu = document.getElementById('menu');
+				menu.classList.toggle('open');
+				var menuOpen = document.getElementById('menu_open');
+				menuOpen.classList.toggle('open');
+
+				var containerFile = document.getElementById('container-file');
+
+				if (!menu.classList.contains('open')) {
+					var isSubMenuOpen = document.querySelector('#sottomenu_1_open.open, #sottomenu_2_open.open, #sottomenu_3_open.open');
+					if (isSubMenuOpen) {
+						isSubMenuOpen.classList.remove('open');
+						clearSearchInput();
+						hideFiles();
+					}
+					containerFile.style.display = 'none';
+				} else {
+					hideFiles();
+				}
+			}
+
+			function hideFiles() {
+				var files = document.querySelectorAll('.file');
+				files.forEach(function(file) {
+					file.style.display = 'none';
+				});
+			}
+
+			function clearSearchInput() {
+				var searchInput = document.getElementById('search');
+				searchInput.value = '';
+
+				var files = document.querySelectorAll('.file');
+				files.forEach(function(file) {
+					var subfiles = file.querySelectorAll('.subfile');
+					subfiles.forEach(function(subfile) {
+						subfile.style.display = 'none';
+					});
+				});
+			}
+		
+			function toggleSottomenu1() {
+				var sottomenu_1 = document.getElementById('sottomenu_1_open');
+				sottomenu_1.classList.toggle('open');
+
+				var containerFile = document.getElementById('container-file');
+				containerFile.style.display = 'none'; 
+
+				var sottomenu_2 = document.getElementById('sottomenu_2_open');
+				var sottomenu_3 = document.getElementById('sottomenu_3_open');
+				if (sottomenu_2.classList.contains('open')) {
+					sottomenu_2.classList.remove('open');
+					clearSearchInput();
+					hideFiles();
+				}
+				if (sottomenu_3.classList.contains('open')) {
+					sottomenu_3.classList.remove('open');
+					clearSearchInput();
+					hideFiles();
+				}
+			}
+
+			function toggleSottomenu2() {
+				var sottomenu_2 = document.getElementById('sottomenu_2_open');
+				sottomenu_2.classList.toggle('open');
+
+				var containerFile = document.getElementById('container-file');
+				containerFile.style.display = 'none'; 
+
+				var sottomenu_1 = document.getElementById('sottomenu_1_open');
+				var sottomenu_3 = document.getElementById('sottomenu_3_open');
+				if (sottomenu_1.classList.contains('open')) {
+					sottomenu_1.classList.remove('open');
+					clearSearchInput();
+					hideFiles();
+				}
+				if (sottomenu_3.classList.contains('open')) {
+					sottomenu_3.classList.remove('open');
+					clearSearchInput();
+					hideFiles();
+				}
+			}
+
+			function toggleSottomenu3() {
+				var sottomenu_3 = document.getElementById('sottomenu_3_open');
+				sottomenu_3.classList.toggle('open');
+
+				var containerFile = document.getElementById('container-file');
+				containerFile.style.display = 'none';
+
+				var sottomenu_1 = document.getElementById('sottomenu_1_open');
+				var sottomenu_2 = document.getElementById('sottomenu_2_open');
+				if (sottomenu_1.classList.contains('open')) {
+					sottomenu_1.classList.remove('open');
+					clearSearchInput();
+					hideFiles();
+				}
+				if (sottomenu_2.classList.contains('open')) {
+					sottomenu_2.classList.remove('open');
+					clearSearchInput();
+					hideFiles();
+				}
+			}
+
+			function keepFocus(event) {
+				event.stopPropagation();
+			}
+			
+			document.getElementById('submit').addEventListener('click', function(event) {
+				event.stopPropagation();
+				var searchText = document.getElementById('search').value.trim().toLowerCase();
+				var files = document.querySelectorAll('.file');
+				var hasResult = false;
+				files.forEach(function(file) {
+					var fileName = file.textContent.trim().toLowerCase();
+					if (fileName.includes(searchText)) {
+						file.style.display = 'block';
+						hasResult = true;
+					} else {
+						file.style.display = 'none';
+					}
+				});
+
+				var containerFile = document.getElementById('container-file');
+				if (hasResult) {
+					containerFile.style.display = 'block';
+				} else {
+					containerFile.style.display = 'none';
+				}
+
+				clearSearchInput(); 
+			});
+		</script>
+	</body>
+</html>
