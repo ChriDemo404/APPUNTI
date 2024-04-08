@@ -15,7 +15,7 @@
 			}
 			
 			#container {
-				display: inline;
+				display: flow;
 				height: auto;
 			}
 
@@ -39,6 +39,8 @@
 				font-size: 30px;
 				font-family: "Merriweather", serif;
 				font-weight: 500;
+				text-decoration: none;
+				color: #000000;
 			}
 
 			#titolo_2 {
@@ -55,6 +57,7 @@
 			}
 
 			#testo_6 {
+				color: #666;
 				height: 50px;
 				width: 33%;
 				font-family: "Kalam", cursive;
@@ -174,12 +177,11 @@
 			/*BARRA RICERCA*/
 			
 			#search {
-				text-indent: 10px; /* Regola che sposta il cursore di 10px a destra */
+				text-indent: 10px; 
 			}
 			
 			.modulo-ricerca {
 				background-color: #f6f6f6;
-				border: 0.5px solid #999999;
 				border-radius: 10px;
 				overflow: hidden;
 				padding: 5px;
@@ -188,14 +190,19 @@
 			}
 
 			.modulo-ricerca #search {
-				border: 1px solid #999999;
-				box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #FFF;
+				border: none; 
+				box-shadow: none; 
 				border-radius: 10px;
 				color: #666666;
 				font: 20px Lucida Sans, Trebuchet MS, Tahoma, sans-serif;
 				box-sizing: border-box;
 				height: 50px;
 				width: 89%;
+			}
+			
+			.modulo-ricerca #search:hover {
+				border: none; 
+				box-shadow: none;
 			}
 
 			.modulo-ricerca #search::-webkit-input-placeholder {
@@ -266,7 +273,7 @@
 				display: flex;
 				background-color: #333333;
 				width: 100%;
-				height: 100%;
+				height: 212%;
 				justify-content: center;
 				align-items: flex-start;
 			}
@@ -278,8 +285,7 @@
 				background-color: #ececec;
 				width: 60%;
 				height: auto;
-				margin-top: 5%;
-				top: 15%;
+				top: 13%;
 				position: relative;
 			}
 			
@@ -353,6 +359,24 @@
 				background-color: #ffc216;
 			}
 			
+			#homepage-content {
+				position: relative;
+				width: 100%;
+				height: 500px;
+				background-color: #333333;
+				font-family: "Libre Baskerville", serif;
+				font-weight: 700;
+			}
+			
+			#homepage-content p {
+				color: #ffffff;
+				font-size: 61px;
+				line-height: 72px;
+				margin-left: 10%;
+				margin-right: 10%;
+				padding-top:10%;
+			}
+			
 			* {
 				margin: 0;
 			}
@@ -364,7 +388,7 @@
 				<div id="navbar">
 					<div id="non-icone">
 						<img id = "titolo_2" src = "https://toppng.com/uploads/preview/open-book-icon-png-download-book-black-and-white-11563256975aruucvosij.png" height = "40px"/>
-						<div class="titolo_1">SCHOLA CLASSICA</div>
+						<a href = "https://chridemo404.github.io/Appunti/" class="titolo_1">SCHOLA CLASSICA</a>
 					</div>
 					<div id="hover">
 						<span class="material-symbols-outlined" style="font-weight: 320; margin-right: 5px; font-size: 30px">brightness_5</span>
@@ -387,7 +411,7 @@
 					<div id="sottomenu_1_open"  onclick="toggleSottomenu1()">
 						<div class="modulo-ricerca">
 							<input type="text" id="search" placeholder="File da cercare..." onclick="keepFocus(event)">
-							<button id="submit">cerca</button>
+							<button id="submit"><span class="material-symbols-outlined">search</span></button>
 						</div>
 					</div>
 					<div id="sottomenu_2_open"  onclick="toggleSottomenu2()">
@@ -397,6 +421,9 @@
 						<div id="testo_6"></div>
 					</div>
 				</div>
+			</div>
+			<div id="homepage-content">
+				<p>BENVENUTO SU SCHOLA CLASSICA!<br>QUI CONDIVIDO I MIEI APPUNTI.<br>BUONO STUDIO!</p>
 			</div>
 			<div id = "container-container-container">
 				<div id = "container-container">
@@ -479,6 +506,14 @@
 						subfile.style.display = 'none';
 					});
 				}
+
+				// Aggiungi il contenuto dei sottofile nella sezione homepage-content
+				var homepageContent = document.getElementById('homepage-content');
+				homepageContent.innerHTML = ''; // Resetta il contenuto precedente
+				subfiles.forEach(function(subfile) {
+					var subfileClone = subfile.cloneNode(true);
+					homepageContent.appendChild(subfileClone);
+				});
 			}
 
 			var files = document.querySelectorAll('.file');
@@ -494,7 +529,8 @@
 				var menuOpen = document.getElementById('menu_open');
 				menuOpen.classList.toggle('open');
 
-				var containerFile = document.getElementById('container-file');
+				// Sezione di benvenuto
+				var homepageContent = document.getElementById('homepage-content');
 
 				if (!menu.classList.contains('open')) {
 					var isSubMenuOpen = document.querySelector('#sottomenu_1_open.open, #sottomenu_2_open.open, #sottomenu_3_open.open');
@@ -503,9 +539,10 @@
 						clearSearchInput();
 						hideFiles();
 					}
-					containerFile.style.display = 'none';
+					homepageContent.style.display = 'block'; // Mostra la sezione di benvenuto quando il menu non è aperto
 				} else {
 					hideFiles();
+					homepageContent.style.display = 'none'; // Nascondi la sezione di benvenuto quando il menu viene aperto
 				}
 			}
 
